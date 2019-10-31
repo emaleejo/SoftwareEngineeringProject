@@ -8,9 +8,9 @@ def orders():
         tk2.title("Order")
         Label1 = Label(tk2, text = "What menu would you like to order from?", font =('Arial Black',40), bg = 'white', fg = 'black')
         Label1.pack(pady=10,padx=10)
-        food = Button(tk2, text='Food',font =('Arial',26), width=20, fg='green').pack()
-        drink = Button(tk2, text='Drink',font =('Arial',26), width=20, fg='green').pack()
-        back = Button(tk2, text='Back',font =('Arial',26), width=20, fg='green', command=lambda:[tk2.withdraw(),tk.deiconify()]).pack()
+        food = Button(tk2, text='Food',font =('Arial',26), width=20, height=3, fg='green').pack()
+        drink = Button(tk2, text='Drink',font =('Arial',26), width=20, height=3, fg='green').pack()
+        back = Button(tk2, text='Back',font =('Arial',26), width=20, height=3, fg='green', command=lambda:[tk2.withdraw(),tk.deiconify()]).pack()
 
 def main(): 
         #tk = Tk() 
@@ -23,7 +23,7 @@ def main():
         file.add_command(label="Exit", command=tk.destroy)
 
         #Logo added
-        frame = Frame(tk, width=1200, height=600, background='white')
+        frame = Frame(tk, width=800, height=600, background='white')
         frame.pack_propagate(0)    
         frame.pack()
         # Logo that we created
@@ -32,15 +32,15 @@ def main():
         pic.pack()
 
         #Buttons
-        service = Button(tk, text='Request Service', width=20, font =('Arial',26), fg='green')
-        service.pack()
-        order = Button(tk, text='Order',font =('Arial',26), width=20, fg='green', command = orders) 
-        order.pack()
-        check = Button(tk, text='Request Check', width=20, font =('Arial',26), fg='green')
-        check.pack()
-        pay = Button(tk, text='Make Payment', width=20, font =('Arial',26), fg='green') 
-        pay.pack()
-        games = Button(tk, text='Games', width=20, font =('Arial',26), fg='green')
+        service = Button(tk, text='Request Service', width=20, height=3, font =('Arial',26), fg='green')
+        service.pack(side=LEFT)
+        order = Button(tk, text='Order',font =('Arial',26), width=20, height=3, fg='green', command = orders) 
+        order.pack(side = LEFT)
+        check = Button(tk, text='Request Check', width=20, height=3, font =('Arial',26), fg='green')
+        check.pack(side=RIGHT)
+        pay = Button(tk, text='Make Payment', width=20,height=3, font =('Arial',26), fg='green') 
+        pay.pack(side=RIGHT)
+        games = Button(tk, text='Games', width=20, height=3, font =('Arial',26), fg='green')
         games.pack()
 
         tk.mainloop()
