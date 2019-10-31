@@ -10,7 +10,7 @@ def orders():
         Label1.pack(pady=10,padx=10)
         food = Button(tk2, text='Food',font =('Arial',26), width=20, fg='green').pack()
         drink = Button(tk2, text='Drink',font =('Arial',26), width=20, fg='green').pack()
-        back = Button(tk2, text='Back',font =('Arial',26), width=20, fg='green', command=lambda:[tk2.withdraw(),tk.show()]).pack()
+        back = Button(tk2, text='Back',font =('Arial',26), width=20, fg='green', command=lambda:[tk2.withdraw(),tk.deiconify()]).pack()
 
 def main(): 
         #tk = Tk() 
