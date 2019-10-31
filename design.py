@@ -1,21 +1,12 @@
 
 from tkinter import *
 tk = Tk()
+tk.wm_attributes("-fullscreen", True)
 
-class Checkbar(Frame):
-   def __init__(self, parent=None, picks=[], side=LEFT, anchor=W):
-      Frame.__init__(self, parent)
-      self.vars = []
-      for pick in picks:
-         var = IntVar()
-         chk = Checkbutton(self, text=pick, variable=var)
-         chk.pack(side=side, anchor=anchor, expand=YES)
-         self.vars.append(var)
-   def state(self):
-      return map((lambda var: var.get()), self.vars)
 
 def orders():
         tk2 = Tk()
+        tk2.wm_attributes("-fullscreen", True)
         tk.withdraw()
         tk2.title("Order")
         Label1 = Label(tk2, text = "What menu would you like to order from?", font =('Caviar Dreams',40), bg = 'white', fg = 'black')
@@ -26,6 +17,7 @@ def orders():
 
 def foods():
         tk3 = Tk()
+        tk3.wm_attributes("-fullscreen", True)
         tk3.title("Food")
         Label1 = Label(tk3, text = "Select an option", font =('Caviar Dreams',40), bg = 'white', fg = 'black')
         pizza = Button(tk3, text = "Pizza", font = ('Caviar Dreams' ,26), width=20, height=3, fg='green', command=lambda:[pizzas.__call__(), tk3.withdraw()]).pack()
@@ -35,8 +27,14 @@ def foods():
 
 def pizzas():
         tkP = Tk()
-        opt = Checkbar(tkP, ['Pepperoni', 'Bacon', 'Sausage', 'Spinach', 'Mushroom', 'Olives'])
-        opt.pack(side=TOP,  fill=X)
+        tkP.wm_attributes("-fullscreen", True)
+        vars = []
+        frame = Frame(tk, width=800, height=600, background='white').pack()
+        picks = ['Pepperoni', 'Bacon', 'Sausage', 'Spinach', 'Mushroom', 'Olives', 'Pineapple']
+        for pick in picks:
+                var = IntVar()
+                chk = Checkbutton(tkP, text=pick, variable=var, font =('Caviar Dreams' ,26)).pack()
+                vars.append(var)
         back2 = Button(tkP, text='Back',font =('Caviar Dreams' ,26), width=20, height=3, fg='green', command=lambda:[tkP.withdraw(),tk3.deiconify()]).pack()
 
 def main(): 
