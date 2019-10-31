@@ -1,18 +1,26 @@
 
 from tkinter import *
+tk = Tk()
 
-def order():
-        Label1 = Label(tk, text = "What menu would you like to order from?", font =('Arial Black',40), bg = 'white', fg = 'black')
+def orders():
+        tk2 = Tk()
+        tk.withdraw()
+        tk2.title("Order")
+        Label1 = Label(tk2, text = "What menu would you like to order from?", font =('Arial Black',40), bg = 'white', fg = 'black')
         Label1.pack(pady=10,padx=10)
-        food = Button(tk, text='Food',font =('Arial',26), width=20, fg='green') #Take screenshots button
-        food.pack()
-        drink = Button(tk, text='Drink',font =('Arial',26), width=20, fg='green') #Take screenshots button
-        food.pack()
+        food = Button(tk2, text='Food',font =('Arial',26), width=20, fg='green').pack()
+        drink = Button(tk2, text='Drink',font =('Arial',26), width=20, fg='green') #Take screenshots button
+        drink.pack()
+        back = Button(tk2, text='Back',font =('Arial',26), width=20, fg='green', command = backbutton) #Take screenshots button
+        back.pack()
 
-def main():
-        tk = Tk()  
+def backbutton():
+        tk2.withdraw()
+        tk.show()
+
+def main(): 
+        #tk = Tk() 
         tk.title('Customer Streamliner 9000') 
-
         # Taskbar / Menu 
         menu = Menu(tk)
         tk.config(menu=menu)
@@ -36,7 +44,7 @@ def main():
         #Buttons
         service = Button(tk, text='Request Service', width=20, font =('Arial',26), fg='green')
         service.pack()
-        order = Button(tk, text='Order',font =('Arial',26), width=20, fg='green', command = order()) 
+        order = Button(tk, text='Order',font =('Arial',26), width=20, fg='green', command = orders) 
         order.pack()
         check = Button(tk, text='Request Check', width=20, font =('Arial',26), fg='green')
         check.pack()
