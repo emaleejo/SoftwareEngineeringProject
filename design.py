@@ -1,6 +1,13 @@
 
 from tkinter import *
 
+def order():
+        Label1 = Label(tk, text = "What menu would you like to order from?", font =('Arial Black',40), bg = 'white', fg = 'black')
+        Label1.pack(pady=10,padx=10)
+        food = Button(tk, text='Food',font =('Arial',26), width=20, fg='green') #Take screenshots button
+        food.pack()
+        drink = Button(tk, text='Drink',font =('Arial',26), width=20, fg='green') #Take screenshots button
+        food.pack()
 
 def main():
         tk = Tk()  
@@ -14,7 +21,7 @@ def main():
         file.add_command(label="Exit", command=tk.destroy)
 
         #Label Logo
-        Label1 = Label(tk, text = "Ivancic's Italian", font =('Arial Black',40), bg = 'black', fg = 'white')
+        Label1 = Label(tk, text = "Ivancic's Italian", font =('Arial Black',40), bg = 'white', fg = 'black')
         Label1.pack(pady=10,padx=10)
 
         #Logo added
@@ -27,18 +34,15 @@ def main():
         #pic.pack()
 
         #Buttons
-        # Run Button
-        service = Button(tk, text='Request Service', width=20, font =('Arial',26), fg='purple4') #Start button
+        service = Button(tk, text='Request Service', width=20, font =('Arial',26), fg='green')
         service.pack()
-        # Screenshot Library Button
-        order = Button(tk, text='Order',font =('Arial',26), width=20, fg='purple4') #Take screenshots button
+        order = Button(tk, text='Order',font =('Arial',26), width=20, fg='green', command = order()) 
         order.pack()
-        # Exit Button 
-        check = Button(tk, text='Request Check', width=20, font =('Arial',26), fg='purple4') #Exit button
+        check = Button(tk, text='Request Check', width=20, font =('Arial',26), fg='green')
         check.pack()
-        pay = Button(tk, text='Make Payment', width=20, font =('Arial',26), fg='purple4') #Exit button
+        pay = Button(tk, text='Make Payment', width=20, font =('Arial',26), fg='green') 
         pay.pack()
-        games = Button(tk, text='Games', width=20, font =('Arial',26), fg='purple4') #Exit button
+        games = Button(tk, text='Games', width=20, font =('Arial',26), fg='green')
         games.pack()
 
         tk.mainloop()
