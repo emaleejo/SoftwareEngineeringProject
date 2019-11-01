@@ -55,8 +55,11 @@ def game():
 def paycheck():
         tkpc = Tk()
         tkpc.wm_attributes("-fullscreen", True)
-        Labelc = Label(tkpc, text = "Pizza               $8.00\nFetticine               $11.00\nCabernet(2)             $8.50\nTax:           $2.27\nTotal:              $29.77", font =('Caviar Dreams',40), bg = 'white', fg = 'black')
-        Labelc.pack(pady=100,padx=100, side=LEFT)
+        Labelc0 = Label(tkpc, text = "Your check:" ,font =('Caviar Dreams',40), bg = 'white', fg = 'green').pack()
+        Labelc = Label(tkpc, text = 
+        "  Pizza                $8.00\n    Fetticine            $11.00\n  Cabernet(2)       $8.50\n  Tax:                  $2.27\n   Total:               $29.77", font =('Caviar Dreams',40), bg = 'white', fg = 'black')
+        Labelc.pack(pady=100,padx=100,)
+        Labelc1 = Label(tkpc, text = "Your server has been notified and a paper copy is on it's way." ,font =('Caviar Dreams',40), bg = 'white', fg = 'green').pack()
 
 def main(): 
         #tk = Tk() 
