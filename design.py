@@ -1,7 +1,10 @@
 
 from tkinter import *
+import webbrowser
 tk = Tk()
 tk.wm_attributes("-fullscreen", True)
+
+ticket = []
 
 def requests():
         tkr = Tk()
@@ -26,7 +29,7 @@ def foods():
         tk3.wm_attributes("-fullscreen", True)
         tk3.title("Food")
         Label1 = Label(tk3, text = "Select an option", font =('Caviar Dreams',40), bg = 'white', fg = 'black')
-        pizza = Button(tk3, text = "Pizza", font = ('Caviar Dreams' ,26), width=20, height=3, fg='green', command=lambda:[pizzas.__call__(), tk3.withdraw()]).pack()
+        pizza = Button(tk3, text = "Pizza", font = ('Caviar Dreams' ,26), width=20, height=3, fg='green', command=lambda:[pizzas(), tk3.withdraw()]).pack()
         pasta = Button(tk3, text = "Pasta", font = ('Caviar Dreams' ,26), width=20, height=3, fg='green').pack()
         salad = Button(tk3, text = "Salad", font = ('Caviar Dreams' ,26), width=20, height=3, fg='green').pack()
         back2 = Button(tk3, text='Back',font =('Caviar Dreams' ,26), width=20, height=3, fg='green', command=lambda:[tk3.withdraw(),tk.deiconify()]).pack()
@@ -35,15 +38,19 @@ def pizzas():
         tkP = Tk()
         tkP.wm_attributes("-fullscreen", True)
         vars = []
-        frame = Frame(tk, width=800, height=600, background='white').pack()
+        Labelp = Label(tkP, text = "What would you like on your pizza?", font =('Caviar Dreams',40), bg = 'white', fg = 'black')
+        Labelp.pack(pady=100,padx=100)
         picks = ['Pepperoni', 'Bacon', 'Sausage', 'Spinach', 'Mushroom', 'Olives', 'Pineapple']
         for pick in picks:
                 var = IntVar()
                 chk = Checkbutton(tkP, text=pick, variable=var, font =('Caviar Dreams' ,26)).pack()
                 vars.append(var)
 
-        add = Button(tkP, text='Add to Order',font =('Caviar Dreams' ,26), width=20, height=3, fg='green')
-        back2 = Button(tkP, text='Back',font =('Caviar Dreams' ,26), width=20, height=3, fg='green', command=lambda:[tkP.withdraw(),tk.deiconify()]).pack()
+        add = Button(tkP, text='Add to Order',font =('Caviar Dreams' ,26), width=20, height=3, fg='green', command=lambda:[tkP.withdraw(), ticket.append("Pizza")]).pack()
+        back4 = Button(tkP, text='Back',font =('Caviar Dreams' ,26), width=20, height=3, fg='green', command=lambda:[tkP.withdraw(),tk.deiconify()]).pack()
+
+def game():
+        webbrowser.open_new("https://www.solitr.com")
 
 def main(): 
         #tk = Tk() 
@@ -73,7 +80,7 @@ def main():
         check.pack(side=RIGHT)
         pay = Button(tk, text='Make Payment', width=20,height=3, font =('Caviar Dreams',26), fg='green') 
         pay.pack(side=RIGHT)
-        games = Button(tk, text='Games', width=20, height=3, font =('Caviar Dreams' ,26), fg='green')
+        games = Button(tk, text='Games', width=20, height=3, font =('Caviar Dreams' ,26), fg='green', command = game)
         games.pack(side=LEFT)
 
         tk.mainloop()
