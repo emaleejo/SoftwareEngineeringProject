@@ -52,6 +52,12 @@ def pizzas():
 def game():
         webbrowser.open_new("https://www.solitr.com")
 
+def paycheck():
+        tkpc = Tk()
+        tkpc.wm_attributes("-fullscreen", True)
+        Labelc = Label(tkpc, text = "Pizza               $8.00\nFetticine               $11.00\nCabernet(2)             $8.50\nTax:           $2.27\nTotal:              $29.77", font =('Caviar Dreams',40), bg = 'white', fg = 'black')
+        Labelc.pack(pady=100,padx=100, side=LEFT)
+
 def main(): 
         #tk = Tk() 
         tk.title('Customer Streamliner 9000') 
@@ -76,7 +82,7 @@ def main():
         service.pack(side=LEFT)
         order = Button(tk, text='Order',font =('Caviar Dreams' ,26), width=20, height=3, fg='green', command = orders) 
         order.pack(side = LEFT)
-        check = Button(tk, text='Request Check', width=20, height=3, font =('Caviar Dreams',26), fg='green')
+        check = Button(tk, text='Request Check', width=20, height=3, font =('Caviar Dreams',26), fg='green', command = paycheck)
         check.pack(side=RIGHT)
         pay = Button(tk, text='Make Payment', width=20,height=3, font =('Caviar Dreams',26), fg='green') 
         pay.pack(side=RIGHT)
