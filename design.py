@@ -3,6 +3,12 @@ from tkinter import *
 tk = Tk()
 tk.wm_attributes("-fullscreen", True)
 
+def requests():
+        tkr = Tk()
+        tkr.wm_attributes("-fullscreen", True)
+        Labelr = Label(tkr, text = "Your server has been notified and will be by shortly.", font =('Caviar Dreams',40), bg = 'white', fg = 'black')
+        Labelr.pack(pady=400,padx=10)
+        backr = Button(tk3, text='Back',font =('Caviar Dreams' ,26), width=20, height=3, fg='green', command=lambda:[tkr.withdraw(),tk.deiconify()]).pack()
 
 def orders():
         tk2 = Tk()
@@ -10,7 +16,7 @@ def orders():
         tk.withdraw()
         tk2.title("Order")
         Label1 = Label(tk2, text = "What menu would you like to order from?", font =('Caviar Dreams',40), bg = 'white', fg = 'black')
-        Label1.pack(pady=10,padx=10)
+        Label1.pack(pady=200,padx=10)
         food = Button(tk2, text='Food',font =('Caviar Dreams' ,26), width=20, height=3, fg='green', command=lambda:[foods.__call__(), tk2.withdraw()]).pack()
         drink = Button(tk2, text='Drink',font =('Caviar Dreams' ,26), width=20, height=3, fg='green').pack()
         back = Button(tk2, text='Back',font =('Caviar Dreams' ,26), width=20, height=3, fg='green', command=lambda:[tk2.withdraw(),tk.deiconify()]).pack()
@@ -23,7 +29,7 @@ def foods():
         pizza = Button(tk3, text = "Pizza", font = ('Caviar Dreams' ,26), width=20, height=3, fg='green', command=lambda:[pizzas.__call__(), tk3.withdraw()]).pack()
         pasta = Button(tk3, text = "Pasta", font = ('Caviar Dreams' ,26), width=20, height=3, fg='green').pack()
         salad = Button(tk3, text = "Salad", font = ('Caviar Dreams' ,26), width=20, height=3, fg='green').pack()
-        back2 = Button(tk3, text='Back',font =('Caviar Dreams' ,26), width=20, height=3, fg='green', command=lambda:[tk3.withdraw(),tk2.deiconify()]).pack()
+        back2 = Button(tk3, text='Back',font =('Caviar Dreams' ,26), width=20, height=3, fg='green', command=lambda:[tk3.withdraw(),tk.deiconify()]).pack()
 
 def pizzas():
         tkP = Tk()
@@ -35,7 +41,9 @@ def pizzas():
                 var = IntVar()
                 chk = Checkbutton(tkP, text=pick, variable=var, font =('Caviar Dreams' ,26)).pack()
                 vars.append(var)
-        back2 = Button(tkP, text='Back',font =('Caviar Dreams' ,26), width=20, height=3, fg='green', command=lambda:[tkP.withdraw(),tk3.deiconify()]).pack()
+
+        add = Button(tkP, text='Add to Order',font =('Caviar Dreams' ,26), width=20, height=3, fg='green')
+        back2 = Button(tkP, text='Back',font =('Caviar Dreams' ,26), width=20, height=3, fg='green', command=lambda:[tkP.withdraw(),tk.deiconify()]).pack()
 
 def main(): 
         #tk = Tk() 
@@ -57,7 +65,7 @@ def main():
         pic.pack()
 
         #Buttons
-        service = Button(tk, text='Request Service', width=20, height=3, font =('Caviar Dreams',26), fg='green')
+        service = Button(tk, text='Request Service', width=20, height=3, font =('Caviar Dreams',26), fg='green', command = requests)
         service.pack(side=LEFT)
         order = Button(tk, text='Order',font =('Caviar Dreams' ,26), width=20, height=3, fg='green', command = orders) 
         order.pack(side = LEFT)
